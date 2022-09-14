@@ -1,4 +1,4 @@
-import { appState } from "../AppState"
+import { appState } from "../AppState.js"
 import { imagesApi } from "../Services/ApiService.js"
 
 class ImagesService {
@@ -6,8 +6,8 @@ class ImagesService {
 
   async getImage() {
     const res = await imagesApi.get()
-    appState.image = res.data
     console.log(res.data)
+    appState.image = res.data
   }
 }
 
