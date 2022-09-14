@@ -15,23 +15,32 @@
 <body>
 
 
-  <header class="d-flex flex-column align-items-end">
-    <div class="rounded elevation-5 d-flex flex-column justify-content-center align-items-center p-1 me-3 selectable">
-      <div class="text-white fs-4" id="weather"></div>
-      <div class="text-white fs-4" id="location"></div>
+  <header class="d-flex justify-content-end mt-1">
+    <div class="d-flex flex-column align-items-center glass p-1 me-3 rounded elevation-5 text-white fs-4">
+      <div id="weather"></div>
+      <div id="location"></div>
     </div>
   </header>
 
 
   <main>
     <div class="container-fluid">
-      <div class="d-flex flex-column align align-items-center">
-        <div class="text-white" id="clock"></div>
-        <div class="text-white" id="date"></div>
+      <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column align-items-center glass p-1 rounded elevation-5 text-white fs-4">
+          <div id="clock"></div>
+          <div id="date"></div>
+        </div>
       </div>
     </div>
   </main>
-  <footer class="bg-dark text-light">
+  <footer>
+    <div class="d-flex flex-column">
+      <div class="glass elevation-5 justify-content-start">
+        <span id="quote"></span>
+        <span id="author"></span>
+      </div>
+
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

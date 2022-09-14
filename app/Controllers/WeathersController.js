@@ -11,10 +11,29 @@ function _drawWeather() {
   document.getElementById('location').innerHTML = `${weather.name}`
 }
 
+function _drawClock() {
+  const clock = new Date();
+  const display = clock.getHours() + ':' + ('0' + clock.getMinutes()).slice(-2);
+  let clockELem = document.getElementById('clock')
+  // @ts-ignore
+  clockELem.innerHTML = display
+}
+
+function _drawDate() {
+  let date = new Date()
+  date.toLocaleDateString()
+  let dateElem = document.getElementById('date')
+  // @ts-ignore
+  dateElem.innerHTML = date.toLocaleDateString()
+}
+
 export class WeathersController {
 
   constructor() {
     appState.on('weather', _drawWeather);
+    setInterval(_drawClock, 1000)
+    _drawClock()
+    _drawDate()
     this.getWeather()
   }
 

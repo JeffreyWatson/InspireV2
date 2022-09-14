@@ -1,0 +1,15 @@
+.glass {
+  background: rgb(0, 0, 0, 38%);
+  backdrop-filter: blur(4px);
+  border: solid #8d8b8b1f;
+  /* position: relative; */
+  bottom: 17em;
+  color: white;
+  border-radius: 8px;
+  padding: 1em;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-position: cover;
+}
