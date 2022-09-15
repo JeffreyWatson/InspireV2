@@ -8,7 +8,6 @@ class App {
   weathersController = new WeathersController();
   quotesController = new QuotesController();
   tasksController = new TasksController();
-
 }
 
 window["app"] = new App();
