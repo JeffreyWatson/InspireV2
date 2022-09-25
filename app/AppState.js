@@ -7,10 +7,12 @@ class AppState extends EventEmitter {
   // /** @type {import('./Models/Value').Value[]} */
   // values = loadState('values', Value)
   image = {}
-  weather = {}
+  /** @type {import('./Models/Weather').Weather | null} */
+  weather = null
   quote = {}
   /** @type {import('./Models/Task').Task[]} */
   tasks = []
+  currentTemp = 0
 }
 
 export const appState = new Proxy(new AppState(), {

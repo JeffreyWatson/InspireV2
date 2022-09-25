@@ -6,7 +6,6 @@ class ImagesService {
 
   async getImage() {
     const res = await imagesApi.get()
-    console.log(res.data)
     appState.image = res.data
   }
 }

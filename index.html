@@ -17,8 +17,7 @@
 
   <header class="d-flex justify-content-end mt-1">
     <div class="d-flex flex-column align-items-center glass p-1 me-2 rounded elevation-5 text-white fs-4">
-      <div id="weather"></div>
-      <div id="location"></div>
+      <span id="weather"></span>
     </div>
   </header>
 
@@ -31,6 +30,25 @@
           <div id="date"></div>
         </div>
       </div>
+      <!--  -->
+      <div class="row">
+        <div class="d-flex justify-content-end">
+          <div class="glass m-0" style="width: 18rem;">
+            <div class="card-body">
+              <h6 class="d-flex flex-row justify-content-between"><u>ToDo</u><span><u>Completed: <span id="completed"> 0</span>/<span id="total">0</span></u></h6>
+              <form onsubmit="app.tasksController.addTasks()">
+                <div id="tasks">
+                </div>
+                <div class="p-2">
+                  <input type="text" required="text" minlength="1" maxlength="30" class="form-control me-1" name="description" id="description">
+                  <button type="submit" class="btn btn-grey text-white mt-2">Add Task</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
     </div>
   </main>
   <footer>

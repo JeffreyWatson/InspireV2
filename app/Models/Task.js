@@ -1,4 +1,4 @@
-import { generateId } from "../Utils/generateId";
+import { generateId } from "../Utils/generateId.js";
 
 export class Task {
   constructor(data) {
@@ -6,5 +6,13 @@ export class Task {
     this.completed = data.completed || false
     this.user = data.user
     this.description = data.description
+  }
+
+  get Template() {
+    return `
+    <div>
+    <input type="checkbox" ${this.completed ? 'checked' : ''} onclick="app.tasksController.completeTasks('${this.id}')" <li>${this.description}<span><i class="mdi mdi-delete" onclick="app.tasksController.deleteTasks('${this.id}')"></i></span></li>
+    </div>
+    `
   }
 }

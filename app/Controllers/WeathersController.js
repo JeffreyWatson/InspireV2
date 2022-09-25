@@ -1,30 +1,25 @@
 import { appState } from "../AppState.js";
+import { Weather } from "../Models/Weather.js";
 import { weathersService } from "../Services/WeathersService.js";
 import { Pop } from "../Utils/Pop.js";
+import { setHTML } from "../Utils/Writer.js";
 
 function _drawWeather() {
-  let weather = appState.weather
-  weather.main.temp = (Math.round(weather.main.temp - 273.15) * 1.8 + 32).toFixed()
-  // @ts-ignore
-  document.getElementById('weather').innerHTML = `${weather.main.temp + '℉'}`
-  // @ts-ignore
-  document.getElementById('location').innerHTML = `${weather.name}`
+  if (!appState.weather) { return }
+  // document.getElementById('weather').innerHTML = appState.weather.Template
+  setHTML('weather', appState.weather.Template)
 }
 
 function _drawClock() {
   const clock = new Date();
   const display = clock.getHours() + ':' + ('0' + clock.getMinutes()).slice(-2);
-  let clockELem = document.getElementById('clock')
-  // @ts-ignore
-  clockELem.innerHTML = display
+  setHTML('clock', display)
 }
 
 function _drawDate() {
   let date = new Date()
   date.toLocaleDateString()
-  let dateElem = document.getElementById('date')
-  // @ts-ignore
-  dateElem.innerHTML = date.toLocaleDateString()
+  setHTML('date', date.toLocaleDateString())
 }
 
 export class WeathersController {
@@ -43,6 +38,16 @@ export class WeathersController {
     } catch (error) {
       console.error(error)
       Pop.toast(error.message, 'error')
+    }
+  }
+
+  changeTemp() {
+    if (appState.currentTemp == 0) {
+      setHTML('temperature', `${appState.weather?.getFahrenheit().toFixed(0)}&deg;F`)
+      appState.currentTemp = 1
+    } else if (appState.currentTemp == 1) {
+      setHTML('temperature', `${appState.weather?.getCelsius().toFixed(0)}&deg;C`)
+      appState.currentTemp = 0
     }
   }
 }
